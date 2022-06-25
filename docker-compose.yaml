@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  mysql:
+    container_name: car_tracking_mysql
+    image: mysql:latest
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: 'secret'
+      MYSQL_USER: 'admin'
+      MYSQL_PASS: 'secret'
+      secure-file-priv-dir: '/var/lib/mysql/transport_tracking'
+    ports:
+      - "3306:3306"
+    volumes:
+      - my-datavolume:/var/lib/mysql
+volumes:
+    my-datavolume:
